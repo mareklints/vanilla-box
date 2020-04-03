@@ -1,0 +1,23 @@
+{
+  "name": "vanilla-box",
+  "version": "1.0.0",
+  "description": "Simple popup-manager for frontend projects written in pure Vanilla JavaScript.",
+  "main": "popup.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mareklints/vanilla-box.git"
+  },
+  "keywords": [
+    "vanilla-js",
+    "popup"
+  ],
+  "author": "Marek Lints",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mareklints/vanilla-box/issues"
+  },
+  "homepage": "https://github.com/mareklints/vanilla-box#readme"
+}
