@@ -1,4 +1,4 @@
 module.exports = {
-    ...require('./popup'), 
-    ...require('./config')
+    box: require('./popup-window'), 
+    config: require('./config')
 };
