@@ -40,8 +40,8 @@
 }
 
 #popupContent {
-  width: calc(100% - 0px);
-  height: calc(100% - 0px);
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
   padding: 10px;
   background: white;
 }

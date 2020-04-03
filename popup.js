@@ -1,35 +1,3 @@
-const POPUP_CONF_DEFAULT = {
-    dimensionClass: 'popup-600-800',
-    displayCloseButton: true,
-    coverBackground: 'darkgrey',
-    coverOpacity: '90%',
-    coverCloseOnClick: true
-};
-
-const POPUP_CONF_BLANK_300_300 = {
-    dimensionClass: 'popup-300-300',
-    displayCloseButton: false,
-    coverBackground: 'white',
-    coverOpacity: '100%',
-    coverCloseOnClick: false
-};
-
-const POPUP_CONF_300_300 = {
-    dimensionClass: 'popup-300-300',
-    displayCloseButton: true,
-    coverBackground: 'darkgrey',
-    coverOpacity: '90%',
-    coverCloseOnClick: true
-};
-
-const POPUP_CONF_BLANK_600_800 = {
-    dimensionClass: 'popup-600-800',
-    displayCloseButton: false,
-    coverBackground: 'white',
-    coverOpacity: '100%',
-    coverCloseOnClick: false
-};
-
 let popupConfActive = null;
 
 const sleep = timeout => new Promise(resolve => setTimeout(resolve, timeout));
@@ -55,7 +23,7 @@ function initPopup() {
     document.body.innerHTML += popupHtml;
 }
 
-async function openPopup(conf = POPUP_CONF_DEFAULT, templateId) {
+async function openPopup(conf, templateId) {
     closePopup();
     popupConfActive = conf;
     applyBackgroundCover();
@@ -120,5 +88,9 @@ function closeBackgroundCover() {
     }
 }
 
-initPopup();
 
+module.exports.box = {
+    initPopup,
+    openPopup,
+    closePopup
+};
