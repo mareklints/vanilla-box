@@ -4,7 +4,7 @@ let configmanager = require('./config-manager');
 const containerTemplate = document.createElement('template');
 containerTemplate.innerHTML = /*html*/`
 <div data-key="backgroundCover" style="display: none;"></div>
-<div data-key="popup" class="popup" style="display: none;">
+<div data-key="popup" style="display: none;">
     <div data-key="popupContent" style="display: none;">
         <div data-key="popupTopBar" style="visibility: hidden;">
             <svg height="20" width="20">
@@ -64,7 +64,27 @@ class PopupWindow extends HTMLElement {
 
     async displayPopup() {
         const popup = this.querySelector('[data-key=popup]');
-        popup.style.top = (window.pageYOffset + this.config.top) + "px";
+
+        if (this.config.isFixed) {
+            popup.style.top = this.config.top + "px";
+            popup.style.position = 'fixed';
+        } else {
+            popup.style.top = (window.pageYOffset + this.config.top) + "px";
+            popup.style.position = 'absolute';
+        }
+
+        switch (this.config.appearFrom) {
+            case 'right':
+                popup.classList.add('popup-right');
+                break;
+            case 'left':
+                popup.classList.add('popup-left');
+                break;
+            default:
+                popup.classList.add('popup-center');
+                break;
+        }
+
         popup.style.display = 'block';
         await util.sleep(50);
         if (this.config && this.config.dimensionClass) {

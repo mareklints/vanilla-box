@@ -1,6 +1,8 @@
 let configs = new Map();
 configs.set('default', {
     top: 10,
+    appearFrom: 'center',
+    isFixed: false,
     dimensionClass: 'popup-600-800',
     displayCloseButton: true,
     coverBackground: 'lightgrey',
@@ -9,6 +11,8 @@ configs.set('default', {
 });
 configs.set('blank_300_300', {
     top: 10,
+    appearFrom: 'center',
+    isFixed: false,
     dimensionClass: 'popup-300-300',
     displayCloseButton: false,
     coverBackground: 'white',
@@ -17,6 +21,8 @@ configs.set('blank_300_300', {
 });
 configs.set('blank_400_400', {
     top: 20,
+    appearFrom: 'center',
+    isFixed: false,
     width: '400px',
     height: '400px',
     displayCloseButton: true,

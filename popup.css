@@ -7,12 +7,31 @@
   z-index: 1;
 }
 
-.popup {
+.popup-right {
   background: darkgrey;
   padding: 1px;
   width: 0;
   height: 0;
-  position: absolute;
+  right: 0px;
+  transition: 0.3s;
+  z-index: 2;
+}
+
+.popup-left {
+  background: darkgrey;
+  padding: 1px;
+  width: 0;
+  height: 0;
+  left: 0px;
+  transition: 0.3s;
+  z-index: 2;
+}
+
+.popup-center {
+  background: darkgrey;
+  padding: 1px;
+  width: 0;
+  height: 0;
   left: 50%;
   transform: translateX(-50%);
   transition: 0.3s;
