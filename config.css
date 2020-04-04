@@ -1,0 +1,19 @@
+.popup-300-300 {
+    width: 300px;
+    height: 300px;
+}
+
+.popup-600-800 {
+    width: 600px;
+    height: 800px;
+}
+
+@media (max-width: 600px) {
+    .popup-300-300 {
+        width: calc(100% - 40px);
+    }
+
+    .popup-600-800 {
+        width: calc(100% - 40px);
+    }
+}

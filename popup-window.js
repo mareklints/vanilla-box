@@ -1,5 +1,5 @@
 let util = require('./util');
-let config = require('./config');
+let configmanager = require('./config-manager');
 
 const containerTemplate = document.createElement('template');
 containerTemplate.innerHTML = /*html*/`
@@ -8,8 +8,8 @@ containerTemplate.innerHTML = /*html*/`
     <div data-key="popupContent" style="display: none;">
         <div data-key="popupTopBar" style="visibility: hidden;">
             <svg height="20" width="20">
-                <line x1="0" y1="0" x2="20" y2="20" style="stroke:darkblue;stroke-width:2" />
-                <line x1="0" y1="20" x2="20" y2="0" style="stroke:darkblue;stroke-width:2" />
+                <line x1="0" y1="0" x2="20" y2="20" style="stroke:darkgrey;stroke-width:1" />
+                <line x1="0" y1="20" x2="20" y2="0" style="stroke:darkgrey;stroke-width:1" />
             </svg>
         </div>
         <div data-key="popupBody">
@@ -33,8 +33,7 @@ class PopupWindow extends HTMLElement {
     attributeChangedCallback(name, oldValue, newValue) {
         switch (name) {
             case 'config-name':
-                console.log(config);
-                this.config = config[newValue];
+                this.config = configmanager.getConfig(newValue);
                 break;
         }
     }
@@ -65,10 +64,15 @@ class PopupWindow extends HTMLElement {
 
     async displayPopup() {
         const popup = this.querySelector('[data-key=popup]');
-        popup.style.top = (window.pageYOffset + 50) + "px";
+        popup.style.top = (window.pageYOffset + this.config.top) + "px";
         popup.style.display = 'block';
         await util.sleep(50);
-        popup.classList.add(this.config.dimensionClass);
+        if (this.config && this.config.dimensionClass) {
+            popup.classList.add(this.config.dimensionClass);
+        } else {
+            popup.style.width = this.config.width;
+            popup.style.height = this.config.height;
+        }
         await util.sleep(300);
     }
 
@@ -97,6 +101,8 @@ class PopupWindow extends HTMLElement {
         const popupContent = this.querySelector('[data-key=popupContent]');
         const popupTopBar = this.querySelector('[data-key=popupTopBar]');
         popup.classList.remove(this.config && this.config.dimensionClass);
+        popup.style.width = null;
+        popup.style.height = null;
         popup.style.display = 'none';
         popupContent.style.display = 'none';
         popupTopBar.style.visibility = 'hidden';
