@@ -4,12 +4,12 @@ let configmanager = require('./config-manager');
 const containerTemplate = document.createElement('template');
 containerTemplate.innerHTML = /*html*/`
 <div data-key="backgroundCover" style="display: none;"></div>
-<div data-key="popup" style="display: none;">
+<div data-key="popup" style="display: none">
     <div data-key="popupContent" style="display: none;">
         <div data-key="popupTopBar" style="visibility: hidden;">
             <svg height="20" width="20">
-                <line x1="0" y1="0" x2="20" y2="20" style="stroke:darkgrey;stroke-width:1" />
-                <line x1="0" y1="20" x2="20" y2="0" style="stroke:darkgrey;stroke-width:1" />
+                <line x1="0" y1="0" x2="20" y2="20" style="stroke:darkgrey;stroke-width:2" />
+                <line x1="0" y1="20" x2="20" y2="0" style="stroke:darkgrey;stroke-width:2" />
             </svg>
         </div>
         <div data-key="popupBody">
@@ -87,11 +87,12 @@ class PopupWindow extends HTMLElement {
 
         popup.style.display = 'block';
         await util.sleep(50);
-        if (this.config && this.config.dimensionClass) {
-            popup.classList.add(this.config.dimensionClass);
+        if (this.config && this.config.cssClass) {
+            popup.classList.add(this.config.cssClass);
         } else {
             popup.style.width = this.config.width;
             popup.style.height = this.config.height;
+            popup.style.background = this.config.background || 'white';
         }
         await util.sleep(300);
     }
@@ -120,10 +121,11 @@ class PopupWindow extends HTMLElement {
         const popup = this.querySelector('[data-key=popup]');
         const popupContent = this.querySelector('[data-key=popupContent]');
         const popupTopBar = this.querySelector('[data-key=popupTopBar]');
-        popup.classList.remove(this.config && this.config.dimensionClass);
+        popup.className = '';
         popup.style.width = null;
         popup.style.height = null;
         popup.style.display = 'none';
+        popup.style.position = 'static';
         popupContent.style.display = 'none';
         popupTopBar.style.visibility = 'hidden';
         this.querySelector('svg').removeEventListener('click', this.close);

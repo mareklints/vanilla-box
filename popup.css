@@ -8,28 +8,28 @@
 }
 
 .popup-right {
-  background: darkgrey;
-  padding: 1px;
+  border: 1px solid darkgrey;
+  padding: 0;
   width: 0;
-  height: 0;
+  height: 100%;
   right: 0px;
   transition: 0.3s;
   z-index: 2;
 }
 
 .popup-left {
-  background: darkgrey;
-  padding: 1px;
+  border: 1px solid darkgrey;
+  padding: 0;
   width: 0;
-  height: 0;
+  height: 100%;
   left: 0px;
   transition: 0.3s;
   z-index: 2;
 }
 
 .popup-center {
-  background: darkgrey;
-  padding: 1px;
+  border: 1px solid darkgrey;
+  padding: 0;
   width: 0;
   height: 0;
   left: 50%;
@@ -41,7 +41,6 @@
 [data-key="popupContent"] {
   width: 100%;
   height: 100%;
-  background: white;
 }
 
 [data-key="popupTopBar"] {
