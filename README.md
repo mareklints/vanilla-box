@@ -22,7 +22,7 @@ npm install @marek.lints/vanilla-box
 The following imports are needed in order to use the package:
 
 Main entry point: *(like app.js)*:
-```
+```js
 // Package-related imports
 import '@marek.lints/vanilla-box/popup.css';
 import '@marek.lints/vanilla-box/config.css';
@@ -37,7 +37,7 @@ import '../css/app.css';
 Opening popup window with a predefined configuration:
 
 app.js:
-```
+```js
 document.querySelector('#popupContainer1').innerHTML = /*html*/`
     <popup-window config-name="blank_400_400">
     <template>
@@ -62,7 +62,7 @@ document
 ```
 
 index.html:
-```
+```html
 <div id="popupContainer1"></div>
 ```
 
@@ -71,7 +71,7 @@ index.html:
 Opening popup window with a custom configuration:
 
 app.js:
-```
+```js
 // Registaring a custom configuration
 configmanager.addConfig('blank_90pct_50pct', {
     top: 0,
@@ -107,7 +107,7 @@ document
 ```
 
 index.html:
-```
+```html
 <div id="popupContainer2"></div>
 ```
 
@@ -138,7 +138,7 @@ index.html:
 Opening popup window with a custom configuration and custom style:
 
 app.js:
-```
+```js
 // Registering a custom configuration
 configmanager.addConfig('blank_300px_100pct', {
     top: 0,
@@ -171,12 +171,12 @@ document
 ```
 
 index.html:
-```
+```html
 <div id="popupContainer4"></div>
 ```
 
 app.css:
-```
+```css
 .popup-blank-300px-100pct {
     width: 300px;
     height: 100%;
