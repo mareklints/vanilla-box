@@ -74,6 +74,9 @@ class PopupWindow extends HTMLElement {
         }
 
         switch (this.config.appearFrom) {
+            case 'top':
+                popup.classList.add('popup-top');
+                break;
             case 'right':
                 popup.classList.add('popup-right');
                 break;
@@ -87,7 +90,7 @@ class PopupWindow extends HTMLElement {
 
         popup.style.display = 'block';
         await util.sleep(50);
-        if (this.config && this.config.cssClass) {
+        if (this.config.cssClass) {
             popup.classList.add(this.config.cssClass);
         } else {
             popup.style.width = this.config.width;
