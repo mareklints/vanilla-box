@@ -116,7 +116,7 @@ index.html:
 Opening popup window with a custom configuration:
 
 index.html:
-```
+```html
 <popup-window config-name="default">
     <template>
         <div>
