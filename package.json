@@ -1,6 +1,6 @@
 {
   "name": "@marek.lints/vanilla-box",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Simple popup-manager for frontend projects written in pure Vanilla JavaScript.",
   "main": "index.js",
   "scripts": {

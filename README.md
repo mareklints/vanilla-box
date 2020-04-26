@@ -72,7 +72,7 @@ Opening popup window with a custom configuration:
 
 app.js:
 ```js
-// Registaring a custom configuration
+// Registering a custom configuration
 configmanager.addConfig('blank_90pct_50pct', {
     top: 0,
     appearFrom: 'right',
@@ -198,9 +198,7 @@ The following properties has to be specified when creating a custom configuratio
 ---
 ***Required properties:***
 
-**top:** `0` [in pixels]
-
-**appearFrom:** `'top'` | `'right'` | `'left'` | `'center'`
+**appearFrom:** `'top'` | `'bottom'` | `'right'` | `'left'` | `'center'`
 
 **isFixed:** `true` | `false`
 
@@ -214,6 +212,10 @@ The following properties has to be specified when creating a custom configuratio
 
 ---
 ***Optional properties (either these):***
+
+**top:** `0` [in pixels]
+
+**bottom:** `0` [in pixels]
 
 **width:** `'300px'` [any value, any unit] *[optional]*
 

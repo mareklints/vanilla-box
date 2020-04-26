@@ -66,16 +66,29 @@ class PopupWindow extends HTMLElement {
         const popup = this.querySelector('[data-key=popup]');
 
         if (this.config.isFixed) {
-            popup.style.top = this.config.top + "px";
+            if (this.config.top != null) {
+                popup.style.top = this.config.top + "px";
+            }
+            if (this.config.bottom != null) {
+                popup.style.bottom = this.config.bottom + "px";
+            }
             popup.style.position = 'fixed';
         } else {
-            popup.style.top = (window.pageYOffset + this.config.top) + "px";
+            if (this.config.top != null) {
+                popup.style.top = (window.pageYOffset + this.config.top) + "px";
+            }
+            if (this.config.bottom != null) {
+                popup.style.bottom = (window.pageYOffset + this.config.bottom) + "px";
+            }
             popup.style.position = 'absolute';
         }
 
         switch (this.config.appearFrom) {
             case 'top':
                 popup.classList.add('popup-top');
+                break;
+            case 'bottom':
+                popup.classList.add('popup-bottom');
                 break;
             case 'right':
                 popup.classList.add('popup-right');
