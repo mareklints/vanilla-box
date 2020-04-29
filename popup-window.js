@@ -126,10 +126,15 @@ class PopupWindow extends HTMLElement {
     applyBackgroundCover() {
         const cover = this.querySelector('[data-key=backgroundCover]');
         cover.style.display = 'block';
-        cover.style.background = this.config.coverBackground;
+        // cover.style.background = this.config.coverBackground;
         cover.style.opacity = this.config.coverOpacity;
         if (this.config.coverCloseOnClick) {
             cover.addEventListener('click', this.close);
+        }
+        if (this.config.coverBackgroundImage) {
+            cover.style.backgroundImage = `url('${this.config.coverBackgroundImage}')`;
+        } else {
+            cover.style.background = this.config.coverBackground;
         }
     }
 
